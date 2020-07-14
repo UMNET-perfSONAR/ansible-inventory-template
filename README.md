@@ -2,7 +2,7 @@
 
 ansible-inventory-template
 
- - Get the corresponding perfSONAR Ansible playbook and bootstrap it
+ - Get the corresponding Ansible playbook and bootstrap it
 
 ```
 git clone playbook
@@ -10,13 +10,13 @@ cd playbook
 ansible-galaxy install -r  requirements.yml --ignore-errors
 ```
 
- - add this repository to the perfSONAR Ansible playbook
+ - add this repository to the Ansible playbook
 
 ```
 git clone inventory
 ```
 
- - Use Ansible ping to verify connectivity to targets.  ssh and become passwords are Kerberos.
+ - verify connectivity to targets.
 
 ```
 ansible \
@@ -38,7 +38,15 @@ ansible-playbook \
   playbook.yml
 ```
 
- - Run locl playbook
+ - Bootstrap local playbook
+
+```
+ansible-galaxy install \
+  -r  ansible-inventory-template/requirements.yml \
+  --ignore-errors
+```
+
+ - Run local playbook
 
 ```
 ansible-playbook \
